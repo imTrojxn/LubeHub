@@ -21,6 +21,7 @@ local Crossout = Instance.new("ImageButton")
 local Close = Instance.new("ImageButton")
 local TextLabel_3 = Instance.new("TextLabel")
 local UICorner_7 = Instance.new("UICorner")
+local MOTD = Instance.new("TextLabel")
 
 --Properties:
 
@@ -206,13 +207,26 @@ TextLabel_3.TextSize = 14.000
 UICorner_7.CornerRadius = UDim.new(0, 10000000)
 UICorner_7.Parent = TextLabel_3
 
+MOTD.Name = "MOTD"
+MOTD.Parent = MainFrame
+MOTD.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MOTD.BackgroundTransparency = 1.000
+MOTD.BorderSizePixel = 0
+MOTD.ClipsDescendants = true
+MOTD.Position = UDim2.new(0.00999999978, 0, 0.862857163, 0)
+MOTD.Size = UDim2.new(0, 588, 0, 20)
+MOTD.Font = Enum.Font.Gotham
+MOTD.Text = "If you don't have a key just click the textbox and press enter."
+MOTD.TextColor3 = Color3.fromRGB(255, 255, 255)
+MOTD.TextSize = 13.000
+
 -- Scripts:
 
 local function FVPIEB_fake_script() -- KeyBox.KeyEnteredS 
 	local script = Instance.new('LocalScript', KeyBox)
 
 	script.Parent.FocusLost:Connect(function()
-			script.Parent.TextEditable = false
+		script.Parent.TextEditable = false
 		script.Parent.ClearTextOnFocus = false
 		_G.wl_key = script.Parent.Text
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/imTrojxn/LubeHub/main/SwordSimulator.lua'))()
@@ -225,11 +239,11 @@ local function YBKGXSR_fake_script() -- PlayerHeadShot.PlayerHeadImageS
 	local Players = game.Players
 	local player = Players.LocalPlayer
 	local userId = player.UserId
-	
+
 	local thumbType = Enum.ThumbnailType.HeadShot
 	local thumbSize = Enum.ThumbnailSize.Size420x420
 	local content, isready = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
-	
+
 	local imageLabel = script.Parent
 	imageLabel.Image = content
 end
@@ -241,7 +255,7 @@ local function UMSHQPO_fake_script() -- Welcome.WelcomeMessageS
 	local player = Players.LocalPlayer
 	local pName = player.DisplayName
 	local message = "Welcome, "..pName.."!"
-	
+
 	script.Parent.Text = message
 end
 coroutine.wrap(UMSHQPO_fake_script)()
@@ -258,6 +272,6 @@ local function JYGKTEE_fake_script() -- Close.CloseS
 	script.Parent.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent:Destroy()
 	end)
-	
+
 end
 coroutine.wrap(JYGKTEE_fake_script)()
