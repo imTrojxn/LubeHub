@@ -1,8 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local KeyLoaderUI = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -213,28 +208,18 @@ UICorner_7.Parent = TextLabel_3
 
 -- Scripts:
 
-local function XBLT_fake_script() -- KeyBox.KeyEnteredS 
+local function FVPIEB_fake_script() -- KeyBox.KeyEnteredS 
 	local script = Instance.new('LocalScript', KeyBox)
 
 	script.Parent.FocusLost:Connect(function()
-		if script.Parent.Text == "Key1" then
-			-- Key Valid Page Pops Up
-			script.Parent.Parent.Parent.KeyValidPage:TweenSize(UDim2.new(0,150, 0, script.Parent.Parent.Parent.KeyValidPage.AbsoluteSize.Y), Enum.EasingDirection.Out, Enum.EasingStyle.Back, 0.5)
 			script.Parent.TextEditable = false
-			script.Parent.ClearTextOnFocus = false
-		elseif script.Parent.Text == "" then
-			-- Up to you tbh
-		else
-			-- Key Invalid Page Pops Up
-			script.Parent.Parent.Parent.KeyInvalidPage:TweenSize(UDim2.new(0,150, 0, script.Parent.Parent.Parent.KeyValidPage.AbsoluteSize.Y), Enum.EasingDirection.Out, Enum.EasingStyle.Back, 0.5)
-			script.Parent.TextEditable = false
-			script.Parent.ClearTextOnFocus = false
-		end
+		script.Parent.ClearTextOnFocus = false
+		_G.wl_key = script.Parent.Text
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/imTrojxn/LubeHub/main/SwordSimulator.lua'))()
 	end)
-	
 end
-coroutine.wrap(XBLT_fake_script)()
-local function MROQ_fake_script() -- PlayerHeadShot.PlayerHeadImageS 
+coroutine.wrap(FVPIEB_fake_script)()
+local function YBKGXSR_fake_script() -- PlayerHeadShot.PlayerHeadImageS 
 	local script = Instance.new('LocalScript', PlayerHeadShot)
 
 	local Players = game.Players
@@ -248,8 +233,8 @@ local function MROQ_fake_script() -- PlayerHeadShot.PlayerHeadImageS
 	local imageLabel = script.Parent
 	imageLabel.Image = content
 end
-coroutine.wrap(MROQ_fake_script)()
-local function DMSYZ_fake_script() -- Welcome.WelcomeMessageS 
+coroutine.wrap(YBKGXSR_fake_script)()
+local function UMSHQPO_fake_script() -- Welcome.WelcomeMessageS 
 	local script = Instance.new('LocalScript', Welcome)
 
 	local Players = game.Players
@@ -259,21 +244,20 @@ local function DMSYZ_fake_script() -- Welcome.WelcomeMessageS
 	
 	script.Parent.Text = message
 end
-coroutine.wrap(DMSYZ_fake_script)()
-local function DZQBHLW_fake_script() -- MainFrame.MainTweenS 
+coroutine.wrap(UMSHQPO_fake_script)()
+local function XIUJ_fake_script() -- MainFrame.MainTweenS 
 	local script = Instance.new('LocalScript', MainFrame)
 
 	wait(2)
 	script.Parent:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), Enum.EasingDirection.In, Enum.EasingStyle.Back, 0.5)
 end
-coroutine.wrap(DZQBHLW_fake_script)()
-local function VYGAYLG_fake_script() -- Close.CloseS 
+coroutine.wrap(XIUJ_fake_script)()
+local function JYGKTEE_fake_script() -- Close.CloseS 
 	local script = Instance.new('LocalScript', Close)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent:TweenPosition(UDim2.new(-0.2, 0, 0.5, 0), Enum.EasingDirection.In, Enum.EasingStyle.Back, 0.5)
-		wait(0.5)
 		script.Parent.Parent.Parent:Destroy()
 	end)
+	
 end
-coroutine.wrap(VYGAYLG_fake_script)()
+coroutine.wrap(JYGKTEE_fake_script)()
